@@ -27,10 +27,14 @@ Logger <- function(threshold = log.levels[5], colors = log.colors) {
 
   set.threshold(threshold)
 
-  if(requireNamespace("crayon", quietly = TRUE)) {
-    can.color <- T;
-    for(c in colors) {
-      assign(c, crayon::make_style(c));
+  logColors = options("shiny.logColors")[[1]];
+  if(!is.null(logColors) && logColors == T) {
+    if(requireNamespace("crayon", quietly = TRUE)) {
+      can.color <- T
+
+      for(c in colors) {
+        assign(c, crayon::make_style(c));
+      }
     }
   }
 

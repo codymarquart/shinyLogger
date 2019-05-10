@@ -46,3 +46,11 @@ test_that("log disabled", {
   testthat::expect_true(shown == shown.expected)
   testthat::expect_equal(shown, shown.again)
 })
+
+
+test_that("colorless logs", {
+  logger = Logger();
+  options("shiny.logLevel" = "DEBUG")
+  options("shiny.logColors" = F)
+  logger$debug("Testing")
+})
