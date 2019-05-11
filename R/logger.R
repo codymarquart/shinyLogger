@@ -43,15 +43,25 @@ Logger <- function(threshold = log.levels[5], colors = log.colors) {
     askedLevel <- which(log.levels == asked);
     return(!is.null(logLevel) && askedLevel <= which(log.levels == logLevel));
   }
-  logit <- function(reqLevel, ..., color = NULL) {
+  logit <- function(reqLevel, ..., color = NULL, force.print = NULL) {
+    print.opt = options("shiny.logForcePrint")[[1]]
+
+    if(is.null(force.print)) {
+      if(!is.null(print.opt))
+        force.print = print.opt
+      else
+        force.print = T
+    }
 
     if(check(reqLevel) == T) {
-      level.txt = paste0(reqLevel, ":")
+      level.txt = paste0(reqLevel, ": ")
       if(!is.null(color) && can.color == T)
         level.txt = do.call(color, list(level.txt));
 
-      msg = structure(paste0(level.txt, paste(...), "\n"), class="log")
-      msg
+      msg = structure(paste0(level.txt, paste(...)), class="log")
+
+      if(force.print) print(msg)
+      else msg
     }
   }
 
@@ -67,6 +77,10 @@ Logger <- function(threshold = log.levels[5], colors = log.colors) {
   return(log.object);
 }
 
-print.log <- function(x) {
-  cat(x)
-}
+#' @title S3 print for log messages
+#'
+#' @param x object of class log
+#' @param ... optional arguments to print (ignored)
+#'
+#' @export
+print.log <- function(x, ...) cat(x, "\n")

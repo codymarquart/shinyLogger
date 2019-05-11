@@ -1,4 +1,5 @@
 test_that("log something", {
+  options("shiny.logForcePrint"=F)
   logger = Logger("INFO")
 
   err1 = logger$error("Show error")
@@ -27,10 +28,11 @@ test_that("log something", {
 })
 
 test_that("log disabled", {
+  options("shiny.logColors"=T)
   logger = Logger();
   show.msg = "Show something"
   hide.msg = "Hide something"
-  shown.expected = "\033[32mDEBUG:\033[39mShow something\n"
+  shown.expected = "\033[32mDEBUG: \033[39mShow something"
 
   shown = logger$debug(show.msg)
 
@@ -43,7 +45,9 @@ test_that("log disabled", {
   shown.again = logger$debug(show.msg)
 
   testthat::expect_null(hidden)
-  testthat::expect_true(shown == shown.expected)
+  print(as.character(shown))
+  print(shown.expected)
+  testthat::expect_true(as.character(shown) == shown.expected)
   testthat::expect_equal(shown, shown.again)
 })
 
