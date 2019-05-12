@@ -1,13 +1,14 @@
 Package: shinyLogger
-Title: What the Package Does (One Line, Title Case)
+Title: Logging for Shiny Apps 
 Version: 0.0.1.9000
 Authors@R: 
-    person(given = "First",
-           family = "Last",
+    person(given = "Cody",
+           family = "Marquart",
            role = c("aut", "cre"),
-           email = "first.last@example.com",
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
+           email = "cody.marquart@wisc.edu",
+           comment = c(ORCID = "0000-0002-3387-6792"))
+Maintainer: Cody L Marquart <cody.marquart@wisc.edu>
+Description: Easily setup and log messages with different granularity from within a Shiny app.  Can be used in regular R scripts as well.
 License: GPL-3 + file LICENSE
 Encoding: UTF-8
 LazyData: true
