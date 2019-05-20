@@ -60,6 +60,8 @@ check:r-winbuilder:
   image: $REG_URL/ftp:current
   only:
     - master
+  when:
+    - manual
   <<: *build_template
   script:
     - curl -v -T ${PKG}_${VERSION}.tar.gz ftp://win-builder.r-project.org/R-oldrelease/${PKG}_${VERSION}.tar.gz
