@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1582062011198.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1835401956",
+    "id" : "767D44D",
+    "lastKnownWriteTime" : 1565695163,
+    "last_content_update" : 1565695163,
+    "path" : "~/Development/Workspaces/RStudio/shinyLogger/R/shinyLogger.R",
+    "project_path" : "R/shinyLogger.R",
+    "properties" : {
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 6,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

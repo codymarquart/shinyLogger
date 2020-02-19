@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1575118796044.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "84243CC3",
+    "lastKnownWriteTime" : 1575121977,
+    "last_content_update" : 1575121977584,
+    "path" : "~/Development/Workspaces/RStudio/shinyLogger/.gitlab-ci.yml",
+    "project_path" : ".gitlab-ci.yml",
+    "properties" : {
+        "cursorPosition" : "9,0",
+        "scrollLine" : "0"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "yaml"
+}

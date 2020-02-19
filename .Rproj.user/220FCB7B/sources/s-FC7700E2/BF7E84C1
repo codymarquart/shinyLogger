@@ -1,0 +1,26 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1582062337786.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "BF7E84C1",
+    "lastKnownWriteTime" : 1582121131,
+    "last_content_update" : 1582121134065,
+    "path" : "~/Development/Workspaces/RStudio/shinyLogger/tests/testthat/test-basic-logging.R",
+    "project_path" : "tests/testthat/test-basic-logging.R",
+    "properties" : {
+        "cursorPosition" : "22,29",
+        "marks" : "<:0,0\n>:0,0",
+        "scrollLine" : "6"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 8,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
