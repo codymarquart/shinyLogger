@@ -22,8 +22,13 @@
 #'
 #' @return List of class type `logging`
 #####
-Logger <- function(threshold = log.levels[5], colors = log.colors) {
+Logger <- function(threshold = NULL, colors = log.colors) {
   can.color <- F;
+
+  logLevel = options("shiny.logLevel")[[1]]
+  if(is.null(threshold)) {
+    threshold = logLevel;
+  }
 
   set.threshold(threshold)
 
@@ -45,6 +50,7 @@ Logger <- function(threshold = log.levels[5], colors = log.colors) {
   }
   logit <- function(reqLevel, ..., color = NULL, force.print = NULL) {
     print.opt = options("shiny.logForcePrint")[[1]]
+    date.opt = options("shiny.logDate")[[1]]
 
     if(is.null(force.print)) {
       if(!is.null(print.opt))
@@ -54,11 +60,16 @@ Logger <- function(threshold = log.levels[5], colors = log.colors) {
     }
 
     if(check(reqLevel) == T) {
+
       level.txt = paste0(reqLevel, ": ")
-      if(!is.null(color) && can.color == T)
+
+      if(!is.null(color) && can.color == T) # && is.null(date.opt))
         level.txt = do.call(color, list(level.txt));
 
-      msg = structure(paste0(level.txt, paste(...)), class="log")
+      msg = structure(paste0(level.txt, paste(...)), class = c("log", "character"))
+
+      if(!is.null(date.opt))
+        msg <- structure(paste(format(Sys.time(), date.opt), msg), class = class(msg))
 
       if(force.print) print(msg)
       else msg

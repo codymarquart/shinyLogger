@@ -28,8 +28,9 @@ test_that("log something", {
 })
 
 test_that("log disabled", {
-  options("shiny.logColors"=T)
-  logger = Logger();
+  options("shiny.logDate" = NULL)
+  options("shiny.logColors" = TRUE)
+  logger = Logger("DEBUG");
   show.msg = "Show something"
   hide.msg = "Hide something"
   shown.expected = "\033[32mDEBUG: \033[39mShow something"
@@ -39,22 +40,45 @@ test_that("log disabled", {
   set.threshold(NULL)
 
   hidden = logger$debug(hide.msg)
+  testthat::expect_null(hidden)
 
   set.threshold("DEBUG")
-
   shown.again = logger$debug(show.msg)
 
-  testthat::expect_null(hidden)
+  # print("")
   # print(as.character(shown))
-  # print(shown.expected)
-  # testthat::expect_true(as.character(shown) == shown.expected)
+  # print(as.character(shown.again))
+  # print("")
   testthat::expect_equal(shown, shown.again)
 })
 
-
 test_that("colorless logs", {
-  logger = Logger();
   options("shiny.logLevel" = "DEBUG")
-  options("shiny.logColors" = F)
-  logger$debug("Testing")
+  options("shiny.logColors" = FALSE)
+  options("shiny.logDate" = NULL)
+  logger = Logger();
+  dbg1 <- logger$debug("Testing")
+  testthat::expect_equal(as.character(dbg1), "DEBUG: Testing");
+})
+
+test_that("date logged", {
+  options("shiny.logColors" = FALSE)
+  options("shiny.logLevel" = "DEBUG")
+  options("shiny.logDate" = "%Y-%b-%d %X")
+  logger = Logger();
+  with_date <- logger$debug("Testing")
+
+  testthat::expect_true(grepl(x = with_date, pattern = "\\d{4}-\\w{3}-\\d{2}"))
+})
+test_that("date logged with color", {
+  options("shiny.logColors" = TRUE)
+  options("shiny.logLevel" = "DEBUG")
+  options("shiny.logDate" = "%Y-%b-%d %X")
+  logger <- Logger();
+  with_date <- logger$debug("Testing")
+  with_date_chr <- as.character(with_date)
+
+  testthat::expect_true(grepl(x = with_date, pattern = "\\d{4}-\\w{3}-\\d{2}"))
+  testthat::expect_true(grepl(x = with_date_chr, pattern = "\\d{4}-\\w{3}-\\d{2}"))
+  testthat::expect_match(with_date_chr, "\\\033\\[32mDEBUG: \\\033\\[39")
 })
