@@ -11,5 +11,5 @@ navbar:
     - text: "Coverage"
       href: "coverage/master/index.html"
   right:
-    - icon: fa-gitlab
-      href: https://gitlab.com/
+    - icon: fa-github
+      href: https://github.com/codymarquart/shinyLogger

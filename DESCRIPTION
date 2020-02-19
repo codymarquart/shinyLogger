@@ -15,4 +15,4 @@ LazyData: true
 Suggests: 
     crayon,
     testthat (>= 2.1.0)
-RoxygenNote: 6.1.0
+RoxygenNote: 7.0.2
