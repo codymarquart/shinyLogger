@@ -1,7 +1,5 @@
 # shinyLogger - Logging Utility for R and Shiny Apps
 
-[![build status](https://gitlab.com/clmarquart/shinyLogger/badges/master/build.svg)](https://gitlab.com/clmarquart/shinyLogger/pipelines)
-
 ## Overview
 
 shinyLogger provides control over output messages within Shiny apps or long running R scripts.  It is often useful to see output throughout the life of an application or script for debugging or progress output.  However, typical output (e.g. `print` or `cat`) will flood the output and can even slow the app down if they are printing too frequently.  Commonly then, these statements are removed from scripts when moving to production to prevent such problems.
