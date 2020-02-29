@@ -9,7 +9,7 @@ navbar:
     - text: "Changelog"
       href: "news/index.html"
     - text: "Coverage"
-      href: "coverage/master/index.html"
+      href: "coverage/index.html"
   right:
     - icon: fa-github
       href: https://github.com/codymarquart/shinyLogger
