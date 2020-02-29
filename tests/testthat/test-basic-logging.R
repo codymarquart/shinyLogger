@@ -71,12 +71,13 @@ test_that("date logged", {
   testthat::expect_true(grepl(x = with_date, pattern = "\\d{4}-\\w{3}-\\d{2}"))
 })
 test_that("date logged with color", {
-  options("shiny.logColors" = TRUE)
-  options("shiny.logLevel" = "DEBUG")
-  options("shiny.logDate" = "%Y-%b-%d %X")
+  options("shiny.logForcePrint" = FALSE);
+  options("shiny.logColors" = TRUE);
+  options("shiny.logLevel" = "DEBUG");
+  options("shiny.logDate" = "%Y-%b-%d %X");
   logger <- Logger();
-  with_date <- logger$debug("Testing")
-  with_date_chr <- as.character(with_date)
+  with_date <- logger$debug("Testing");
+  with_date_chr <- as.character(with_date);
 
   testthat::expect_true(grepl(x = with_date, pattern = "\\d{4}-\\w{3}-\\d{2}"))
   testthat::expect_true(grepl(x = with_date_chr, pattern = "\\d{4}-\\w{3}-\\d{2}"))

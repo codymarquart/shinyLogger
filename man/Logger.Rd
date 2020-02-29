@@ -4,7 +4,7 @@
 \alias{Logger}
 \title{Shiny Logger}
 \usage{
-Logger(threshold = log.levels[5], colors = log.colors)
+Logger(threshold = NULL, colors = log.colors)
 }
 \arguments{
 \item{threshold}{Level at which to cut logging: See log.levels}
